@@ -27,4 +27,13 @@ public class SampleSecurityController {
     mav.addObject("msg", msg);
     return mav;
   }
+  
+//  ▼リスト7-33
+  @RequestMapping("/admin")
+  public ModelAndView admin(ModelAndView mav) {
+    mav.setViewName("index");
+    mav.addObject("title", "Admin page");
+    mav.addObject("msg", "This is only access ADMIN!");
+    return mav;
+  }
 }
