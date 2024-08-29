@@ -48,21 +48,18 @@ public class SampleSecurityConfig {
 	 JdbcUserDetailsManager users = new JdbcUserDetailsManager(this.dataSource);
 	 
 	 // ユーザー登録（※一度だけ実行する）
-	 users.createUser(makeUser("taro","yamada", "USER"));
-	 users.createUser(makeUser("hanako","flower", "USER"));
-	 users.createUser(makeUser("sachiko","happy", "USER"));
+     //users.createUser(makeUser("taro","yamada", "USER"));
+	 //users.createUser(makeUser("hanako","flower", "USER"));
+	 //users.createUser(makeUser("sachiko","happy", "USER"));
 	 //	▼リスト7-31
-	users.createUser(makeUser("admin","kanri", "ADMIN"));
+	 //users.createUser(makeUser("admin","kanri", "ADMIN"));
 
 	 return users;
 	}
 	
 	private UserDetails makeUser(String user, String pass, String role) {
 	 return User.withUsername(user)
-	 .password(
-	 PasswordEncoderFactories
-	   .createDelegatingPasswordEncoder()
-	   .encode(pass))
+	 .password(PasswordEncoderFactories.createDelegatingPasswordEncoder().encode(pass))
 	   .roles(role)
 	   .build();
 	}
